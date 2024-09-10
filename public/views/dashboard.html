@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root">
+      <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start rtl:justify-end">
+              <button
+                data-drawer-target="logo-sidebar"
+                data-drawer-toggle="logo-sidebar"
+                aria-controls="logo-sidebar"
+                type="button"
+                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              >
+                <span class="sr-only">Open sidebar</span>
+                <svg
+                  class="w-6 h-6"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
+                  ></path>
+                </svg>
+              </button>
+              <a href="/" class="flex ms-2 md:me-24">
+                <img
+                  src="/assets/site/logo.jpg"
+                  class="h-8 me-3"
+                  alt="FlowBite Logo"
+                />
+                <span
+                  class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap"
+                  >Flavor Fusion</span
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <aside
+        id="logo-sidebar"
+        class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0"
+        aria-label="Sidebar"
+      >
+        <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
+          <ul class="space-y-2 font-medium">
+            <li>
+              <a
+                href="/admin/dashboard"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-500 transition duration-75"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 21"
+                >
+                  <path
+                    d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"
+                  />
+                  <path
+                    d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"
+                  />
+                </svg>
+                <span class="ms-3">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/categories"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 22 21"
+                >
+                  <path
+                    d="M4 11h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm10 0h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zM4 21h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm13 0c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4z"
+                  ></path>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Category</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/menuItems"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 22 21"
+                >
+                  <path d="M3 2h2v20H3zm7 4h7v2h-7zm0 4h7v2h-7z"></path>
+                  <path
+                    d="M19 2H6v20h13c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 18H8V4h11v16z"
+                  ></path>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Menu</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/banners"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(103, 99, 99, 1)"
+                >
+                  <path
+                    d="M20 2H8c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM8 16V4h12l.002 12H8z"
+                  ></path>
+                  <path d="M4 8H2v12c0 1.103.897 2 2 2h12v-2H4V8z"></path>
+                  <path d="m12 12-1-1-2 3h10l-4-6z"></path>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Banners</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/customers"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 18"
+                >
+                  <path
+                    d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"
+                  />
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/admin/orders"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4 6h2v2H4zm0 5h2v2H4zm0 5h2v2H4zm16-8V6H8.023v2H18.8zM8 11h12v2H8zm0 5h12v2H8z"
+                  ></path>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Orders</span>
+              </a>
+            </li>
+            <li>
+              <button
+                id="logout-btn"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                  <path
+                    d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"
+                  ></path>
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="p-4 sm:ml-64">
+        <div class="relative w-full transition-all">
+          <div class="px-4 md:px-10 py-4 mx-auto w-full min-h-screen">
+            <main>
+              <div
+                class="relative my-16 flex flex-col min-w-0 break-words w-full mb-6 shadow-lg bg-white rounded-lg p-4 border-0"
+              >
+                <div
+                  class="grid gap-3 md:grid-cols-2 lg:grid-cols-3 place-items-center"
+                >
+                  <div
+                    class="p-3 size-60 border-solid border-8 border-[#990100] border-b-transparent rounded-full"
+                  >
+                    <div
+                      class="size-48 bg-white shadow-lg border rounded-full text-center p-8 mx-auto"
+                    >
+                      <div class="px-8 pb-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          width="60"
+                          height="40"
+                          class="fill-[#990100]"
+                        >
+                          <path
+                            d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div id="order-div" class="text-4xl font-bold text-center text-gray-800">
+                        
+                      </div>
+                      <h1 class="text-[#990100] font-semibold text-sm">
+                        TOTAL ORDERS
+                      </h1>
+                    </div>
+                  </div>
+                  <div
+                    class="p-3 size-60 border-solid border-8 border-[#990100] border-b-transparent rounded-full"
+                  >
+                    <div
+                      class="size-48 bg-white shadow-lg border rounded-full text-center p-8 mx-auto"
+                    >
+                      <div class="px-8 pb-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          width="60"
+                          height="40"
+                          class="fill-[#990100]"
+                        >
+                          <path
+                            d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div id="income-div" class="text-4xl font-bold text-center text-gray-800">
+                        
+                      </div>
+                      <h1 class="text-[#990100] font-semibold text-sm">
+                        TOTAL INCOME
+                      </h1>
+                    </div>
+                  </div>
+                  <div
+                    class="p-3 size-60 border-solid border-8 border-[#990100] border-b-transparent rounded-full"
+                  >
+                    <div
+                      class="size-48 bg-white shadow-lg border rounded-full text-center p-8 mx-auto"
+                    >
+                      <div class="px-8 pb-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512"
+                          width="60"
+                          height="40"
+                          class="fill-[#990100]"
+                        >
+                          <path
+                            d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div id="user-div" class="text-4xl font-bold text-center text-gray-800">
+                        
+                      </div>
+                      <h1 class="text-[#990100] font-semibold text-sm">
+                        TOTAL USERS
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+          <footer class="bg-white w-full p-4">
+            <h5 class="text-center text-sm font-bold">
+              2024 All Rights Reserved
+            </h5>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

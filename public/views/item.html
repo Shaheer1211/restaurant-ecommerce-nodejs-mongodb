@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 flex items-center justify-center h-screen">
+    <div class="flex flex-col items-center">
+      <img
+        src="/assets/site/burger-image.png"
+        alt="Beef Egg Burger"
+        class="w-40 h-40 object-cover rounded-full mb-4"
+      />
+      <h2 class="text-xl font-bold text-gray-900">Name</h2>
+      <p class="text-gray-500 text-sm text-center">Description</p>
+
+      <div class="mt-4 w-full">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <button
+              onclick="updateMainQuantity('decrement')"
+              class="bg-purple-500 text-white rounded-lg px-3 py-1"
+            >
+              -
+            </button>
+            <span id="main-quantity" class="mx-2">0</span>
+            <button
+              onclick="updateMainQuantity('increment')"
+              class="bg-purple-500 text-white rounded-lg px-3 py-1"
+            >
+              +
+            </button>
+          </div>
+          <!-- total -->
+          <span id="main-total-price" class="text-gray-900 font-bold"
+            >RS 0.00</span
+          >
+        </div>
+      </div>
+
+      <button
+        class="bg-purple-700 text-white mt-4 px-4 py-2 rounded-lg w-full hover:bg-[#990100]"
+      >
+        Add to cart
+      </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/js/item.js"></script>
+  </body>
+</html>

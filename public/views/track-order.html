@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Your Order</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-50 flex justify-center items-center h-screen">
+    <div class="relative bg-white rounded-lg shadow-lg p-8 w-full max-w-4xl">
+      <!-- Close Button -->
+      <button
+        onclick="window.location.href='/'"
+        class="absolute top-4 right-4 text-white bg-gray-600 hover:bg-gray-500 rounded-full p-2 focus:outline-none"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <!-- Logo -->
+      <div class="text-center">
+        <img src="/assets/site/logo.jpg" alt="Logo" class="h-16 mx-auto mb-4" />
+      </div>
+
+      <!-- Track Your Order -->
+      <h1 class="text-2xl font-bold text-black-600 text-center mb-6">
+        TRACK YOUR ORDER
+      </h1>
+
+      <!-- Tracking Input -->
+      <div class="relative">
+        <input
+          id="orderId"
+          type="text"
+          placeholder="Enter Your Order ID"
+          class="w-full px-6 py-4 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#990100]"
+        />
+        <button
+          id="trackOrderBtn"
+          class="absolute top-1/2 right-3 transform -translate-y-1/2 text-[#990100]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="flex justify-between items-center mt-8">
+        <div class="w-14 h-14 flex items-center justify-center">
+          <img id="step1" src="/assets/site/home.svg" alt="Step 1" class="h-10 w-10 text-white" />
+        </div>
+        <div class="flex-1 h-1 bg-gray-300 mx-2"></div>
+        <div class="w-14 h-14 flex items-center justify-center">
+          <img id="step2" src="/assets/site/store.svg" alt="Step 2" class="h-10 w-10 text-white" />
+        </div>
+        <div class="flex-1 h-1 bg-gray-300 mx-2"></div>
+        <div class="w-14 h-14 flex items-center justify-center">
+          <img id="step3" src="/assets/site/basket.svg" alt="Step 3" class="h-10 w-10 text-white" />
+        </div>
+        <div class="flex-1 h-1 bg-gray-300 mx-2"></div>
+        <div class="w-14 h-14 flex items-center justify-center">
+          <img id="step4" src="/assets/site/delivery.svg" alt="Step 4" class="h-10 w-10 text-white" />
+        </div>
+      </div>
+
+      <!-- Status Text -->
+      <div id="statusText" class="mt-6 text-center text-lg font-bold text-gray-800"></div>
+    </div>
+
+    <script>
+      document.getElementById('trackOrderBtn').addEventListener('click', function () {
+        const orderId = document.getElementById('orderId').value;
+        if (!orderId) {
+          alert('Please enter an order ID.');
+          return;
+        }
+        trackOrder(orderId);
+      });
+
+      function trackOrder(orderId) {
+        fetch(`/api/order/${orderId}`)
+          .then(response => response.json())
+          .then(data => {
+            updateProgressBar(data.status);
+          })
+          .catch(error => {
+            console.error('Error fetching order:', error);
+            document.getElementById('statusText').innerText = 'Order not found or an error occurred.';
+          });
+      }
+
+      function updateProgressBar(status) {
+        // Reset progress bar colors
+        document.getElementById('step1').style.opacity = '0.3';
+        document.getElementById('step2').style.opacity = '0.3';
+        document.getElementById('step3').style.opacity = '0.3';
+        document.getElementById('step4').style.opacity = '0.3';
+
+// Update the progress bar and status text based on the order status
+let statusText = '';
+switch (status) {
+  case 'Pending':
+    document.getElementById('step1').style.opacity = '1';
+    statusText = 'Your order is pending.';
+    break;
+  case 'Confirmed':
+    document.getElementById('step1').style.opacity = '1';
+    document.getElementById('step2').style.opacity = '1';
+    statusText = 'Your order has been confirmed.';
+    break;
+  case 'Cooking':
+    document.getElementById('step1').style.opacity = '1';
+    document.getElementById('step2').style.opacity = '1';
+    document.getElementById('step3').style.opacity = '1';
+    statusText = 'Your order is being prepared.';
+    break;
+  case 'Out For Delivery':
+    document.getElementById('step1').style.opacity = '1';
+    document.getElementById('step2').style.opacity = '1';
+    document.getElementById('step3').style.opacity = '1';
+    document.getElementById('step4').style.opacity = '1';
+    statusText = 'Your order is out for delivery!';
+    break;
+  case 'Completed':
+    document.getElementById('step1').style.opacity = '1';
+    document.getElementById('step2').style.opacity = '1';
+    document.getElementById('step3').style.opacity = '1';
+    document.getElementById('step4').style.opacity = '1';
+    statusText = 'Your order has been delivered!';
+    break;
+  case 'Canceled':
+    statusText = 'Your order was canceled.';
+    break;
+  default:
+    statusText = 'Unknown order status.';
+}
+
+// Update the status text
+document.getElementById('statusText').innerText = statusText;
+}
+</script>
+</body>
+</html>
+

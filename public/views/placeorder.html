@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    rubik: ['Rubik', 'sans-serif'],
+                },
+                fontWeight: {
+                bold: 700,
+                medium: 500,
+                semibold:600,
+                },
+            },
+        },
+    };
+    </script>
+</head>
+<body>
+    <div id="root">
+        <main>
+            <section>
+                <div class="w-[90%] max-w-7xl mx-auto">
+                    <div>
+                        <img class="max-w-[400px] mx-auto" src="tick.gif" alt="">
+                    </div><div class="text-center ">
+                        <h1 class="text-4xl font-semibold">Thank You!</h1>
+                        <p class="text-3xl font-medium mt-4 text-[#990100]">Your order for Table 1 has been placed successfully.</p>
+                        <p class="font-bold">For any query please call any waiter nearer to your table.</p>
+                        <div class="flex justify-center w-fit flex-col text-white font-bold text-lg rounded-md py-2 px-4 mt-5 border border-[#990100] bg-[#990100] mx-auto">
+                            <a class="flex justify-center" href="Ecom.html">Continue To Homepage</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="Toastify"></div>
+    </div>
+</body>
+<div id="smartyContainer" style="position: absolute; top: 0px; right: 0px; line-height: initial; z-index: 2147483647; width: auto; font-size: initial;"></div>
+</html>
