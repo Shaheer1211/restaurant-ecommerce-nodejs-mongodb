@@ -38,7 +38,7 @@ $(document).ready(function () {
 
       data.forEach((category) => {
         carouselInner.append(`
-          <div class="carousel-item bg-pastel-pink p-4" onclick="filterByCategory('${category._id}')">
+          <div class="carousel-item bg-[#990100] p-4" onclick="filterByCategory('${category._id}')">
             <h3 class="text-lg font-semibold text-gray-800">${category.name}</h3>
           </div>
         `);

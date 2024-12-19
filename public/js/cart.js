@@ -77,16 +77,16 @@ function setTotalAmount(totalAmount) {
 fetchCartItems();
 
 document.getElementById('checkout-btn').addEventListener('click', function (){
-    let totalAmount = document.getElementById('sub-total').innerText
+    // let totalAmount = document.getElementById('sub-total').innerText
 
-    let cart = JSON.parse(localStorage.getItem('cart'));
+    // let cart = JSON.parse(localStorage.getItem('cart'));
 
-    let items = cart.map((item) => ({
-        menuItemId: item.id,
-        quantity: item.quantity
-    }))
+    // let items = cart.map((item) => ({
+    //     menuItemId: item.id,
+    //     quantity: item.quantity
+    // }))
 
-    localStorage.setItem('cart', JSON.stringify({items, totalAmount}))
+    // localStorage.setItem('cart', JSON.stringify({items, totalAmount}))
 
     window.location = '/checkout'
 })

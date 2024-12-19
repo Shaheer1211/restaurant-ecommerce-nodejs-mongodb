@@ -210,7 +210,7 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
 
   // Check if the item already exists in the cart
   const existingItemIndex = cart.findIndex((item) => item.id === id);
-
+  
   if (existingItemIndex !== -1) {
     // Update the quantity if the item already exists
     cart[existingItemIndex].quantity = quantity;
