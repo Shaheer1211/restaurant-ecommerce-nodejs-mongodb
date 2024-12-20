@@ -1,9 +1,9 @@
 let cart;
+let subTotal = 0;
 
 function fetchCart() {
   cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-  let subTotal = 0;
   cart.forEach((item) => {
     subTotal += item.itemPrice * item.quantity;
   });
@@ -18,7 +18,8 @@ function placeOrder() {
   const address = document.getElementById("address").value;
 
   cart = {
-    ...cart,
+    items: cart,
+    totalAmount: subTotal,
     phoneNo,
     address,
   };
@@ -34,7 +35,6 @@ function placeOrder() {
     .then((response) => response.json())
     .then((data) => {
       // Clear cart from localStorage after successful order
-      console.log(data);
       localStorage.removeItem("cart");
 
       // Redirect to thank you page

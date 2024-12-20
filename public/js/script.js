@@ -199,7 +199,7 @@ document
   .addEventListener("click", updateMainQuantity("increment"));
 
 document.getElementById("add-to-cart").addEventListener("click", function () {
-  const id = document.getElementById("item-id").innerText;
+  const menuItemId = document.getElementById("item-id").innerText;
   const quantity = parseInt(document.getElementById("main-quantity").innerText); // Ensure it's a number
   const itemName = document.getElementById("item-name").innerText;
   const itemImg = document.getElementById("item-img").src;
@@ -209,14 +209,14 @@ document.getElementById("add-to-cart").addEventListener("click", function () {
   let cart = JSON.parse(localStorage.getItem("cart") || "[]");
 
   // Check if the item already exists in the cart
-  const existingItemIndex = cart.findIndex((item) => item.id === id);
+  const existingItemIndex = cart.findIndex((item) => item.menuItemId === menuItemId);
   
   if (existingItemIndex !== -1) {
     // Update the quantity if the item already exists
     cart[existingItemIndex].quantity = quantity;
   } else {
     // Add the new item if it doesn't exist
-    cart.push({ id, quantity, itemName, itemImg, itemPrice });
+    cart.push({ menuItemId, quantity, itemName, itemImg, itemPrice });
   }
 
   // Save the updated cart back to localStorage
