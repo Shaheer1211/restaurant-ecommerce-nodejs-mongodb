@@ -22,17 +22,9 @@ cd your-project-name
 
 ### 2. Install Dependencies
 
-Install server-side dependencies:
+Install dependencies:
 
 ```bash
-cd server
-npm install
-```
-
-Install client-side dependencies:
-
-```bash
-cd ../client
 npm install
 ```
 
@@ -41,8 +33,6 @@ npm install
 Create a `.env` file in the `server` directory and add the following variables:
 
 ```
-PORT=5000
-DB_URI=mongodb://localhost:27017/your-database-name
 JWT_SECRET=your-secret-key
 ```
 
@@ -53,18 +43,10 @@ Adjust the values as per your setup.
 Start the server:
 
 ```bash
-cd server
 npm start
 ```
 
-Start the client:
-
-```bash
-cd ../client
-npm start
-```
-
-The client will be accessible at `http://localhost:3000` and the API at `http://localhost:5000`.
+The website will be accessible at `http://localhost:5000`.
 
 ## Creating an Admin Account
 
